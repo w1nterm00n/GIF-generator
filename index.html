@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <button class="generateCatBtn">generate cat GIF</button>
+  <form class="searchGIFPlace" action="/search" method="get">
+    <input type="text" name="query" placeholder="Search...">
+    <input type="submit" value="Search">
+  </form>
+  <img src="#">
+
+  <script>
+  const img = document.querySelector('img');
+  const generateCatBtn = document.querySelector('.generateCatBtn');
+  const form = document.querySelector('form');
+
+  function generateGIF(word) {
+    let string = "https://api.giphy.com/v1/gifs/translate?api_key=KmKzq5d5HlpcnRtfFXcljrRd7QZdJJ7T&s=" + word;
+    fetch(string, {mode: 'cors'})
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(response) {
+      img.src = response.data.images.original.url;
+    })
+    .catch(function(err) {
+    alert('something went wrong.......');
+    });
+  };
+  generateGIF('cat');
+
+  generateCatBtn.addEventListener ('click', function(){
+    generateGIF('cat');
+  });
+
+  form.addEventListener('submit', function(event){
+    event.preventDefault();
+    var enteredText = document.querySelector('input[name="query"]').value;
+    generateGIF(enteredText);
+});
+  </script>
+</body>
+</html>

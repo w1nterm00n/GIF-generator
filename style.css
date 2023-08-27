@@ -1,0 +1,22 @@
+button{
+  display: block;
+  margin: 0 auto;
+  padding: 10px 10px;
+  background-color: rgb(238, 247, 202);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+img {
+  display: block;
+  margin: 0 auto;
+}
+.searchGIFPlace {
+  display: block;
+  width: fit-content; 
+  margin: 0 auto;
+}
+input {
+  margin-bottom: 20px;
+  padding: 10px;
+}
